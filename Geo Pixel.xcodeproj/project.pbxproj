@@ -1,0 +1,535 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		7740E8EE1DF8DAC900EA66AA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7740E8ED1DF8DAC900EA66AA /* AppDelegate.swift */; };
+		7740E8F01DF8DAC900EA66AA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7740E8EF1DF8DAC900EA66AA /* ViewController.swift */; };
+		7740E8F31DF8DAC900EA66AA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7740E8F11DF8DAC900EA66AA /* Main.storyboard */; };
+		7740E8F51DF8DAC900EA66AA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7740E8F41DF8DAC900EA66AA /* Assets.xcassets */; };
+		7740E8F81DF8DAC900EA66AA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7740E8F61DF8DAC900EA66AA /* LaunchScreen.storyboard */; };
+		7740E9031DF8DAC900EA66AA /* Geo_PixelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7740E9021DF8DAC900EA66AA /* Geo_PixelTests.swift */; };
+		7740E90E1DF8DAC900EA66AA /* Geo_PixelUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7740E90D1DF8DAC900EA66AA /* Geo_PixelUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		7740E8FF1DF8DAC900EA66AA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7740E8E21DF8DAC900EA66AA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7740E8E91DF8DAC900EA66AA;
+			remoteInfo = "Geo Pixel";
+		};
+		7740E90A1DF8DAC900EA66AA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7740E8E21DF8DAC900EA66AA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7740E8E91DF8DAC900EA66AA;
+			remoteInfo = "Geo Pixel";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		7740E8EA1DF8DAC900EA66AA /* Geo Pixel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Geo Pixel.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7740E8ED1DF8DAC900EA66AA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		7740E8EF1DF8DAC900EA66AA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		7740E8F21DF8DAC900EA66AA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		7740E8F41DF8DAC900EA66AA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		7740E8F71DF8DAC900EA66AA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		7740E8F91DF8DAC900EA66AA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7740E8FE1DF8DAC900EA66AA /* Geo PixelTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Geo PixelTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7740E9021DF8DAC900EA66AA /* Geo_PixelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Geo_PixelTests.swift; sourceTree = "<group>"; };
+		7740E9041DF8DAC900EA66AA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7740E9091DF8DAC900EA66AA /* Geo PixelUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Geo PixelUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7740E90D1DF8DAC900EA66AA /* Geo_PixelUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Geo_PixelUITests.swift; sourceTree = "<group>"; };
+		7740E90F1DF8DAC900EA66AA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		7740E8E71DF8DAC900EA66AA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7740E8FB1DF8DAC900EA66AA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7740E9061DF8DAC900EA66AA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		7740E8E11DF8DAC900EA66AA = {
+			isa = PBXGroup;
+			children = (
+				7740E8EC1DF8DAC900EA66AA /* Geo Pixel */,
+				7740E9011DF8DAC900EA66AA /* Geo PixelTests */,
+				7740E90C1DF8DAC900EA66AA /* Geo PixelUITests */,
+				7740E8EB1DF8DAC900EA66AA /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		7740E8EB1DF8DAC900EA66AA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7740E8EA1DF8DAC900EA66AA /* Geo Pixel.app */,
+				7740E8FE1DF8DAC900EA66AA /* Geo PixelTests.xctest */,
+				7740E9091DF8DAC900EA66AA /* Geo PixelUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7740E8EC1DF8DAC900EA66AA /* Geo Pixel */ = {
+			isa = PBXGroup;
+			children = (
+				7740E8ED1DF8DAC900EA66AA /* AppDelegate.swift */,
+				7740E8EF1DF8DAC900EA66AA /* ViewController.swift */,
+				7740E8F11DF8DAC900EA66AA /* Main.storyboard */,
+				7740E8F41DF8DAC900EA66AA /* Assets.xcassets */,
+				7740E8F61DF8DAC900EA66AA /* LaunchScreen.storyboard */,
+				7740E8F91DF8DAC900EA66AA /* Info.plist */,
+			);
+			path = "Geo Pixel";
+			sourceTree = "<group>";
+		};
+		7740E9011DF8DAC900EA66AA /* Geo PixelTests */ = {
+			isa = PBXGroup;
+			children = (
+				7740E9021DF8DAC900EA66AA /* Geo_PixelTests.swift */,
+				7740E9041DF8DAC900EA66AA /* Info.plist */,
+			);
+			path = "Geo PixelTests";
+			sourceTree = "<group>";
+		};
+		7740E90C1DF8DAC900EA66AA /* Geo PixelUITests */ = {
+			isa = PBXGroup;
+			children = (
+				7740E90D1DF8DAC900EA66AA /* Geo_PixelUITests.swift */,
+				7740E90F1DF8DAC900EA66AA /* Info.plist */,
+			);
+			path = "Geo PixelUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		7740E8E91DF8DAC900EA66AA /* Geo Pixel */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7740E9121DF8DAC900EA66AA /* Build configuration list for PBXNativeTarget "Geo Pixel" */;
+			buildPhases = (
+				7740E8E61DF8DAC900EA66AA /* Sources */,
+				7740E8E71DF8DAC900EA66AA /* Frameworks */,
+				7740E8E81DF8DAC900EA66AA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Geo Pixel";
+			productName = "Geo Pixel";
+			productReference = 7740E8EA1DF8DAC900EA66AA /* Geo Pixel.app */;
+			productType = "com.apple.product-type.application";
+		};
+		7740E8FD1DF8DAC900EA66AA /* Geo PixelTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7740E9151DF8DAC900EA66AA /* Build configuration list for PBXNativeTarget "Geo PixelTests" */;
+			buildPhases = (
+				7740E8FA1DF8DAC900EA66AA /* Sources */,
+				7740E8FB1DF8DAC900EA66AA /* Frameworks */,
+				7740E8FC1DF8DAC900EA66AA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7740E9001DF8DAC900EA66AA /* PBXTargetDependency */,
+			);
+			name = "Geo PixelTests";
+			productName = "Geo PixelTests";
+			productReference = 7740E8FE1DF8DAC900EA66AA /* Geo PixelTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		7740E9081DF8DAC900EA66AA /* Geo PixelUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7740E9181DF8DAC900EA66AA /* Build configuration list for PBXNativeTarget "Geo PixelUITests" */;
+			buildPhases = (
+				7740E9051DF8DAC900EA66AA /* Sources */,
+				7740E9061DF8DAC900EA66AA /* Frameworks */,
+				7740E9071DF8DAC900EA66AA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7740E90B1DF8DAC900EA66AA /* PBXTargetDependency */,
+			);
+			name = "Geo PixelUITests";
+			productName = "Geo PixelUITests";
+			productReference = 7740E9091DF8DAC900EA66AA /* Geo PixelUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		7740E8E21DF8DAC900EA66AA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0810;
+				LastUpgradeCheck = 0810;
+				ORGANIZATIONNAME = "JNJ Apps";
+				TargetAttributes = {
+					7740E8E91DF8DAC900EA66AA = {
+						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = JN83A35T6F;
+						ProvisioningStyle = Automatic;
+					};
+					7740E8FD1DF8DAC900EA66AA = {
+						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = JN83A35T6F;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 7740E8E91DF8DAC900EA66AA;
+					};
+					7740E9081DF8DAC900EA66AA = {
+						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = JN83A35T6F;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 7740E8E91DF8DAC900EA66AA;
+					};
+				};
+			};
+			buildConfigurationList = 7740E8E51DF8DAC900EA66AA /* Build configuration list for PBXProject "Geo Pixel" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 7740E8E11DF8DAC900EA66AA;
+			productRefGroup = 7740E8EB1DF8DAC900EA66AA /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				7740E8E91DF8DAC900EA66AA /* Geo Pixel */,
+				7740E8FD1DF8DAC900EA66AA /* Geo PixelTests */,
+				7740E9081DF8DAC900EA66AA /* Geo PixelUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		7740E8E81DF8DAC900EA66AA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7740E8F81DF8DAC900EA66AA /* LaunchScreen.storyboard in Resources */,
+				7740E8F51DF8DAC900EA66AA /* Assets.xcassets in Resources */,
+				7740E8F31DF8DAC900EA66AA /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7740E8FC1DF8DAC900EA66AA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7740E9071DF8DAC900EA66AA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		7740E8E61DF8DAC900EA66AA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7740E8F01DF8DAC900EA66AA /* ViewController.swift in Sources */,
+				7740E8EE1DF8DAC900EA66AA /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7740E8FA1DF8DAC900EA66AA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7740E9031DF8DAC900EA66AA /* Geo_PixelTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7740E9051DF8DAC900EA66AA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7740E90E1DF8DAC900EA66AA /* Geo_PixelUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		7740E9001DF8DAC900EA66AA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7740E8E91DF8DAC900EA66AA /* Geo Pixel */;
+			targetProxy = 7740E8FF1DF8DAC900EA66AA /* PBXContainerItemProxy */;
+		};
+		7740E90B1DF8DAC900EA66AA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7740E8E91DF8DAC900EA66AA /* Geo Pixel */;
+			targetProxy = 7740E90A1DF8DAC900EA66AA /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		7740E8F11DF8DAC900EA66AA /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7740E8F21DF8DAC900EA66AA /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		7740E8F61DF8DAC900EA66AA /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7740E8F71DF8DAC900EA66AA /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		7740E9101DF8DAC900EA66AA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		7740E9111DF8DAC900EA66AA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		7740E9131DF8DAC900EA66AA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = JN83A35T6F;
+				INFOPLIST_FILE = "Geo Pixel/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jnjapps.Geo-Pixel";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		7740E9141DF8DAC900EA66AA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = JN83A35T6F;
+				INFOPLIST_FILE = "Geo Pixel/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jnjapps.Geo-Pixel";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		7740E9161DF8DAC900EA66AA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = JN83A35T6F;
+				INFOPLIST_FILE = "Geo PixelTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jnjapps.Geo-PixelTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Geo Pixel.app/Geo Pixel";
+			};
+			name = Debug;
+		};
+		7740E9171DF8DAC900EA66AA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = JN83A35T6F;
+				INFOPLIST_FILE = "Geo PixelTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jnjapps.Geo-PixelTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Geo Pixel.app/Geo Pixel";
+			};
+			name = Release;
+		};
+		7740E9191DF8DAC900EA66AA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				DEVELOPMENT_TEAM = JN83A35T6F;
+				INFOPLIST_FILE = "Geo PixelUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jnjapps.Geo-PixelUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = "Geo Pixel";
+			};
+			name = Debug;
+		};
+		7740E91A1DF8DAC900EA66AA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				DEVELOPMENT_TEAM = JN83A35T6F;
+				INFOPLIST_FILE = "Geo PixelUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jnjapps.Geo-PixelUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = "Geo Pixel";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		7740E8E51DF8DAC900EA66AA /* Build configuration list for PBXProject "Geo Pixel" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7740E9101DF8DAC900EA66AA /* Debug */,
+				7740E9111DF8DAC900EA66AA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7740E9121DF8DAC900EA66AA /* Build configuration list for PBXNativeTarget "Geo Pixel" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7740E9131DF8DAC900EA66AA /* Debug */,
+				7740E9141DF8DAC900EA66AA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		7740E9151DF8DAC900EA66AA /* Build configuration list for PBXNativeTarget "Geo PixelTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7740E9161DF8DAC900EA66AA /* Debug */,
+				7740E9171DF8DAC900EA66AA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		7740E9181DF8DAC900EA66AA /* Build configuration list for PBXNativeTarget "Geo PixelUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7740E9191DF8DAC900EA66AA /* Debug */,
+				7740E91A1DF8DAC900EA66AA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 7740E8E21DF8DAC900EA66AA /* Project object */;
+}
