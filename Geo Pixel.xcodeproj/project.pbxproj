@@ -14,6 +14,19 @@
 		7740E8F81DF8DAC900EA66AA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7740E8F61DF8DAC900EA66AA /* LaunchScreen.storyboard */; };
 		7740E9031DF8DAC900EA66AA /* Geo_PixelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7740E9021DF8DAC900EA66AA /* Geo_PixelTests.swift */; };
 		7740E90E1DF8DAC900EA66AA /* Geo_PixelUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7740E90D1DF8DAC900EA66AA /* Geo_PixelUITests.swift */; };
+		7740E91D1DF8DDD000EA66AA /* Good Afternoon.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7740E91C1DF8DDD000EA66AA /* Good Afternoon.mp3 */; };
+		7740E9211DF8E6F100EA66AA /* Terminal 1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7740E9201DF8E6F100EA66AA /* Terminal 1.mp3 */; };
+		7740E9231DF8E74600EA66AA /* Terminal 2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7740E9221DF8E74600EA66AA /* Terminal 2.mp3 */; };
+		7740E9251DF8E90F00EA66AA /* Terminal 4.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7740E9241DF8E90F00EA66AA /* Terminal 4.mp3 */; };
+		7740E9271DF8E94400EA66AA /* Terminal 5.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7740E9261DF8E94400EA66AA /* Terminal 5.mp3 */; };
+		7740E9291DF8E9BF00EA66AA /* Terminal 7.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7740E9281DF8E9BF00EA66AA /* Terminal 7.mp3 */; };
+		7740E92B1DF8E9F000EA66AA /* Terminal 8.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7740E92A1DF8E9F000EA66AA /* Terminal 8.mp3 */; };
+		7740E92D1DF8EAA600EA66AA /* Good Evening.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7740E92C1DF8EAA600EA66AA /* Good Evening.mp3 */; };
+		7740E92F1DF8EAB600EA66AA /* Good Morning.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7740E92E1DF8EAB600EA66AA /* Good Morning.mp3 */; };
+		7740E9311DF8EAC700EA66AA /* JFK - Where America Greets the World.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7740E9301DF8EAC700EA66AA /* JFK - Where America Greets the World.mp3 */; };
+		7740E9331DF8EAD400EA66AA /* Many bags look alike.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7740E9321DF8EAD400EA66AA /* Many bags look alike.mp3 */; };
+		7740E9351DF8EAE200EA66AA /* Thank you for using NYC Airporter.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7740E9341DF8EAE200EA66AA /* Thank you for using NYC Airporter.mp3 */; };
+		777A6E321DFF2A8500033769 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 777A6E311DFF2A8500033769 /* CoreLocation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +60,20 @@
 		7740E9091DF8DAC900EA66AA /* Geo PixelUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Geo PixelUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7740E90D1DF8DAC900EA66AA /* Geo_PixelUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Geo_PixelUITests.swift; sourceTree = "<group>"; };
 		7740E90F1DF8DAC900EA66AA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7740E91C1DF8DDD000EA66AA /* Good Afternoon.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Good Afternoon.mp3"; sourceTree = "<group>"; };
+		7740E9201DF8E6F100EA66AA /* Terminal 1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Terminal 1.mp3"; sourceTree = "<group>"; };
+		7740E9221DF8E74600EA66AA /* Terminal 2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Terminal 2.mp3"; sourceTree = "<group>"; };
+		7740E9241DF8E90F00EA66AA /* Terminal 4.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Terminal 4.mp3"; sourceTree = "<group>"; };
+		7740E9261DF8E94400EA66AA /* Terminal 5.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Terminal 5.mp3"; sourceTree = "<group>"; };
+		7740E9281DF8E9BF00EA66AA /* Terminal 7.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Terminal 7.mp3"; sourceTree = "<group>"; };
+		7740E92A1DF8E9F000EA66AA /* Terminal 8.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Terminal 8.mp3"; sourceTree = "<group>"; };
+		7740E92C1DF8EAA600EA66AA /* Good Evening.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Good Evening.mp3"; sourceTree = "<group>"; };
+		7740E92E1DF8EAB600EA66AA /* Good Morning.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Good Morning.mp3"; sourceTree = "<group>"; };
+		7740E9301DF8EAC700EA66AA /* JFK - Where America Greets the World.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "JFK - Where America Greets the World.mp3"; sourceTree = "<group>"; };
+		7740E9321DF8EAD400EA66AA /* Many bags look alike.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Many bags look alike.mp3"; sourceTree = "<group>"; };
+		7740E9341DF8EAE200EA66AA /* Thank you for using NYC Airporter.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Thank you for using NYC Airporter.mp3"; sourceTree = "<group>"; };
+		777A6E311DFF2A8500033769 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		777A6E331DFF372D00033769 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +81,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				777A6E321DFF2A8500033769 /* CoreLocation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,6 +109,7 @@
 				7740E9011DF8DAC900EA66AA /* Geo PixelTests */,
 				7740E90C1DF8DAC900EA66AA /* Geo PixelUITests */,
 				7740E8EB1DF8DAC900EA66AA /* Products */,
+				777A6E301DFF2A8500033769 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -97,6 +126,7 @@
 		7740E8EC1DF8DAC900EA66AA /* Geo Pixel */ = {
 			isa = PBXGroup;
 			children = (
+				7740E91B1DF8DCD000EA66AA /* Audio  */,
 				7740E8ED1DF8DAC900EA66AA /* AppDelegate.swift */,
 				7740E8EF1DF8DAC900EA66AA /* ViewController.swift */,
 				7740E8F11DF8DAC900EA66AA /* Main.storyboard */,
@@ -123,6 +153,34 @@
 				7740E90F1DF8DAC900EA66AA /* Info.plist */,
 			);
 			path = "Geo PixelUITests";
+			sourceTree = "<group>";
+		};
+		7740E91B1DF8DCD000EA66AA /* Audio  */ = {
+			isa = PBXGroup;
+			children = (
+				7740E9201DF8E6F100EA66AA /* Terminal 1.mp3 */,
+				7740E9221DF8E74600EA66AA /* Terminal 2.mp3 */,
+				7740E9241DF8E90F00EA66AA /* Terminal 4.mp3 */,
+				7740E9261DF8E94400EA66AA /* Terminal 5.mp3 */,
+				7740E9281DF8E9BF00EA66AA /* Terminal 7.mp3 */,
+				7740E92A1DF8E9F000EA66AA /* Terminal 8.mp3 */,
+				7740E92E1DF8EAB600EA66AA /* Good Morning.mp3 */,
+				7740E91C1DF8DDD000EA66AA /* Good Afternoon.mp3 */,
+				7740E92C1DF8EAA600EA66AA /* Good Evening.mp3 */,
+				7740E9301DF8EAC700EA66AA /* JFK - Where America Greets the World.mp3 */,
+				7740E9321DF8EAD400EA66AA /* Many bags look alike.mp3 */,
+				7740E9341DF8EAE200EA66AA /* Thank you for using NYC Airporter.mp3 */,
+			);
+			name = "Audio ";
+			sourceTree = "<group>";
+		};
+		777A6E301DFF2A8500033769 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				777A6E331DFF372D00033769 /* MapKit.framework */,
+				777A6E311DFF2A8500033769 /* CoreLocation.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -188,13 +246,18 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0810;
-				LastUpgradeCheck = 0810;
+				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = "JNJ Apps";
 				TargetAttributes = {
 					7740E8E91DF8DAC900EA66AA = {
 						CreatedOnToolsVersion = 8.1;
 						DevelopmentTeam = JN83A35T6F;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 					7740E8FD1DF8DAC900EA66AA = {
 						CreatedOnToolsVersion = 8.1;
@@ -236,7 +299,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				7740E8F81DF8DAC900EA66AA /* LaunchScreen.storyboard in Resources */,
+				7740E9211DF8E6F100EA66AA /* Terminal 1.mp3 in Resources */,
+				7740E9311DF8EAC700EA66AA /* JFK - Where America Greets the World.mp3 in Resources */,
+				7740E91D1DF8DDD000EA66AA /* Good Afternoon.mp3 in Resources */,
 				7740E8F51DF8DAC900EA66AA /* Assets.xcassets in Resources */,
+				7740E9231DF8E74600EA66AA /* Terminal 2.mp3 in Resources */,
+				7740E92D1DF8EAA600EA66AA /* Good Evening.mp3 in Resources */,
+				7740E9291DF8E9BF00EA66AA /* Terminal 7.mp3 in Resources */,
+				7740E92B1DF8E9F000EA66AA /* Terminal 8.mp3 in Resources */,
+				7740E9271DF8E94400EA66AA /* Terminal 5.mp3 in Resources */,
+				7740E92F1DF8EAB600EA66AA /* Good Morning.mp3 in Resources */,
+				7740E9351DF8EAE200EA66AA /* Thank you for using NYC Airporter.mp3 in Resources */,
+				7740E9331DF8EAD400EA66AA /* Many bags look alike.mp3 in Resources */,
+				7740E9251DF8E90F00EA66AA /* Terminal 4.mp3 in Resources */,
 				7740E8F31DF8DAC900EA66AA /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -336,6 +411,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -358,7 +434,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -385,6 +461,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -401,7 +478,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -512,6 +589,7 @@
 				7740E9141DF8DAC900EA66AA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7740E9151DF8DAC900EA66AA /* Build configuration list for PBXNativeTarget "Geo PixelTests" */ = {
 			isa = XCConfigurationList;
@@ -520,6 +598,7 @@
 				7740E9171DF8DAC900EA66AA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7740E9181DF8DAC900EA66AA /* Build configuration list for PBXNativeTarget "Geo PixelUITests" */ = {
 			isa = XCConfigurationList;
@@ -528,6 +607,7 @@
 				7740E91A1DF8DAC900EA66AA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
