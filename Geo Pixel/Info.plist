@@ -21,9 +21,7 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSLocationAlwaysUsageDescription</key>
-	<string>Ahmed would like to tell you what terminal you are near </string>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Please say yes</string>
+	<string>Geo Pixel Would like to access your location to inform you of what flights depart from the terminal you are near</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>location</string>

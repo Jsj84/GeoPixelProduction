@@ -22,15 +22,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="yN4-DX-aH7">
-                                <rect key="frame" x="16" y="0.0" width="343" height="744"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="51" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="yN4-DX-aH7">
+                                <rect key="frame" x="16" y="0.0" width="343" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="60" id="Tty-m7-yHF">
-                                        <rect key="frame" x="0.0" y="28" width="343" height="60"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="51" id="Tty-m7-yHF">
+                                        <rect key="frame" x="0.0" y="28" width="343" height="51"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Tty-m7-yHF" id="pkt-66-xSN">
-                                            <rect key="frame" x="0.0" y="0.0" width="343" height="59"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="50.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -39,10 +39,10 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="yN4-DX-aH7" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="W0B-iv-Sxz"/>
-                            <constraint firstItem="yN4-DX-aH7" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="Y6C-h7-lYM"/>
-                            <constraint firstItem="yN4-DX-aH7" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="gGu-Gk-0UA"/>
-                            <constraint firstAttribute="bottomMargin" secondItem="yN4-DX-aH7" secondAttribute="bottom" constant="-77" id="lR4-Aq-MNj"/>
+                            <constraint firstItem="yN4-DX-aH7" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="Je9-qL-xfT"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="yN4-DX-aH7" secondAttribute="bottom" id="cZg-FA-3G0"/>
+                            <constraint firstItem="yN4-DX-aH7" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="vij-sv-0qN"/>
+                            <constraint firstItem="yN4-DX-aH7" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="vpJ-t9-Rza"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="GEO PIXEL" id="Ifb-8o-57l"/>

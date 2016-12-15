@@ -26,23 +26,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     let termSeven = CLCircularRegion(center: CLLocationCoordinate2D(latitude: 40.648505, longitude: -73.782516), radius: 20, identifier: "none")
     let termEight = CLCircularRegion(center: CLLocationCoordinate2D(latitude: 40.646471, longitude: -73.78886), radius: 20, identifier: "none")
     
-    let testLocation = CLCircularRegion(center: CLLocationCoordinate2D(latitude: 40.696336, longitude:  -73.991676), radius: 15, identifier: "none")
+    let testLocation = CLCircularRegion(center: CLLocationCoordinate2D(latitude: 40.696336, longitude:  -73.991676), radius: 50, identifier: "none")
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if CLLocationManager.authorizationStatus() == .notDetermined {
-            locationManager.requestAlwaysAuthorization()
-        }
-            // 2. authorization were denied
-        else if CLLocationManager.authorizationStatus() == .denied {
-            print("location not available")
-        }
-            // 3. we do have authorization
-        else if CLLocationManager.authorizationStatus() == .authorizedAlways {
-            locationManager.startUpdatingLocation()
-        }
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         
@@ -50,13 +39,17 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         self.tableView.dataSource = self
         self.tableView.backgroundColor = UIColor.clear
         self.tableView.isOpaque = true
-                
+        
+        locationManager.startUpdatingLocation()        
     }
-    private func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
+    func locationManager(_manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
+        print("testing this method")
         switch status {
         case .authorizedAlways:
-            locationManager.startMonitoring(for: termONe)
-            locationManager.requestState(for: termONe)
+            locationManager.startMonitoring(for: testLocation)
+            if CLLocationManager.isRangingAvailable() {
+                print("Range is availabe")
+            }
         case .denied:
             let alert = UIAlertController(title: "Warning", message: "You've disabled location update which is required for this app to work. Go to your phone settings and change the permissions.", preferredStyle: UIAlertControllerStyle.alert)
             let alertAction = UIAlertAction(title: "OK!", style: UIAlertActionStyle.default) { (UIAlertAction) -> Void in }
@@ -83,9 +76,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let userLocation:CLLocation = locations[0]
-        let long = userLocation.coordinate.longitude;
-        let lat = userLocation.coordinate.latitude;
-        print(lat, long)
+        print(userLocation)
         
     }
     func locationManager(_ manager: CLLocationManager, didStartMonitoringFor region: CLRegion) {
