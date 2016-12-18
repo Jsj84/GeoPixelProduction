@@ -23,11 +23,17 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
      // set the 2Dcoordinate values
     let tONe = CLCircularRegion(center: CLLocationCoordinate2D(latitude: 40.6945241, longitude:  -73.99400079999998), radius: 20, identifier: "terminalOne")
+    
     let tTwo = CLCircularRegion(center: CLLocationCoordinate2D(latitude: 40.6924582, longitude:  -73.99121760000003), radius: 20, identifier: "terminalTwo")
+    
     let tFour = CLCircularRegion(center: CLLocationCoordinate2D(latitude: 40.643692, longitude:  -73.79008), radius: 20, identifier: "terminalFour")
+    
     let tFive = CLCircularRegion(center: CLLocationCoordinate2D(latitude: 40.643692, longitude:  -73.79008), radius: 20, identifier: "terminalFive")
+    
     let tSeven = CLCircularRegion(center: CLLocationCoordinate2D(latitude: 40.643692, longitude:  -73.79008), radius: 20, identifier: "terminalSeven")
+    
     let tEight = CLCircularRegion(center: CLLocationCoordinate2D(latitude: 40.643692, longitude:  -73.79008), radius: 20, identifier: "terminalEight")
+    
     let test = CLCircularRegion(center: CLLocationCoordinate2D(latitude: 40.69633569999999, longitude:  -73.99167620000003), radius: 20, identifier: "testLocation")
 
      var region = CLCircularRegion()
@@ -80,6 +86,22 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let alertAction = UIAlertAction(title: "OK!", style: UIAlertActionStyle.default) { (UIAlertAction) -> Void in }
         alert.addAction(alertAction)
         self.present(alert, animated: true, completion: nil)
+        
+        let one_am = now.dateAt(hours: 1, minutes: 0)
+        let one_pm = now.dateAt(hours: 13, minutes: 0)
+        let fivePm_today = now.dateAt(hours: 17, minutes: 0)
+        
+        if now >= one_am &&
+            now < one_pm
+        {
+            goodMorning()
+        }
+        else if now >= one_pm && now < fivePm_today{
+            goodAfternoon()
+        }
+        else {
+            goodEvening()
+        }
         terminal1()
         NSLog("Did enter region")
     }
