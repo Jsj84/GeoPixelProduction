@@ -12,45 +12,45 @@ import CoreLocation
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, AVAudioPlayerDelegate, CLLocationManagerDelegate {
     
+    // set the constants, varibles and outlets
     let now = Date()
     var player: AVAudioPlayer?
-    var locationManager = CLLocationManager()
+    let locationManager = CLLocationManager()
     @IBOutlet weak var tableView: UITableView!
     
+    // set the titles for the tableView
     let items = ["JFK International Airport", "Terminal 1", "Terminal 2", "Terminal 4", "Terminal 5", "Terminal 7", "Terminal 8"]
     
-    static let locations:[String:CLLocationCoordinate2D] = [
-        "terminalOne" : CLLocationCoordinate2D(latitude: 40.643692, longitude: -73.79008),
-        "TerminalTwo" : CLLocationCoordinate2D(latitude: 40.642169, longitude: -73.788976),
-        "terminalFour" : CLLocationCoordinate2D(latitude: 40.644535, longitude: -73.782626),
-        "TerminalFive" : CLLocationCoordinate2D(latitude: 40.644831, longitude: -73.777362),
-        "terminalSeven" : CLLocationCoordinate2D(latitude: 40.648505, longitude: -73.782516),
-        "TerminalEight" : CLLocationCoordinate2D(latitude: 40.646471, longitude: -73.78886),
-        "testLocation" : CLLocationCoordinate2D(latitude: 40.696336, longitude: -73.991676)
-    ]
-    let region = CLCircularRegion(center: CLLocationCoordinate2D(latitude: 40.757365, longitude:  -73.975393), radius: 50, identifier: "MyTestLocation")
+    // set the 2Dcoordinate values
+//    let tONe = CLCircularRegion(center: CLLocationCoordinate2D(latitude: 40.643692, longitude:  -73.79008), radius: 25, identifier: "terminalOne")
+//    let tTwo = CLCircularRegion(center: CLLocationCoordinate2D(latitude: 40.643692, longitude:  -73.79008), radius: 25, identifier: "terminalTwo")
+//    let tFour = CLCircularRegion(center: CLLocationCoordinate2D(latitude: 40.643692, longitude:  -73.79008), radius: 25, identifier: "terminalFour")
+//    let tFive = CLCircularRegion(center: CLLocationCoordinate2D(latitude: 40.643692, longitude:  -73.79008), radius: 25, identifier: "terminalFive")
+//    let tSeven = CLCircularRegion(center: CLLocationCoordinate2D(latitude: 40.643692, longitude:  -73.79008), radius: 25, identifier: "terminalSeven")
+//    let tEight = CLCircularRegion(center: CLLocationCoordinate2D(latitude: 40.643692, longitude:  -73.79008), radius: 25, identifier: "terminalEight")
+    
+     var region = CLCircularRegion()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        locationManager = CLLocationManager()
+        // set the location manager delegate to self, request autorization and set accuracy
         locationManager.delegate = self
         locationManager.requestAlwaysAuthorization()
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         
+        // set the table veiw delage, data source and style
         self.tableView.delegate = self
         self.tableView.dataSource = self
         self.tableView.backgroundColor = UIColor.clear
         self.tableView.isOpaque = true
         
-        
     }
+    // check the authorization atatus and proceed if it is set to always or display message if set to never
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         if status == .authorizedAlways {
             if CLLocationManager.isRangingAvailable() {
                 locationManager.startUpdatingLocation()
-                locationManager.startMonitoring(for: region)
-                region.notifyOnEntry = true
             }
         }
         else if status == .denied {
@@ -61,27 +61,35 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
     }
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        let lat = locationManager.location?.coordinate.latitude
-        let long = locationManager.location?.coordinate.longitude
-        print(lat as Any, long as Any)
+        locationManager.startUpdatingLocation()
+        let region = CLCircularRegion(center: CLLocationCoordinate2D(latitude: 40.69633569999999, longitude:  -73.99167620000003), radius: 30, identifier: "testLocation")
+        locationManager.startMonitoring(for: region)
+        region.notifyOnEntry = true
     }
     func locationManager(_ manager: CLLocationManager, didEnterRegion region: CLRegion) {
-        if region.identifier == "MyTestLocation" {
-            terminal1()
-        }
+        let alert = UIAlertController(title: "Entered Region", message: "You've entered the test region", preferredStyle: UIAlertControllerStyle.alert)
+        let alertAction = UIAlertAction(title: "OK!", style: UIAlertActionStyle.default) { (UIAlertAction) -> Void in }
+        alert.addAction(alertAction)
+        self.present(alert, animated: true, completion: nil)
+        terminal1()
+        NSLog("Did enter region")
     }
     func locationManager(_ manager: CLLocationManager, didExitRegion region: CLRegion) {
         let alert = UIAlertController(title: "Left Region", message: "You've left the test region", preferredStyle: UIAlertControllerStyle.alert)
         let alertAction = UIAlertAction(title: "OK!", style: UIAlertActionStyle.default) { (UIAlertAction) -> Void in }
         alert.addAction(alertAction)
         self.present(alert, animated: true, completion: nil)
+        terminal4()
     }
-    private func locationManager(_ manager: CLLocationManager, monitoringDidFailFor region: CLCircularRegion?, withError error: Error) {
-        print("Monitoring failed for region with identifier: \(region!.identifier)")
+    func locationManager(_ manager: CLLocationManager, monitoringDidFailFor region: CLRegion?, withError error: Error) {
+        print("Monitoring failed for region with identifier: \(region?.identifier)")
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print("Location Manager failed with the following error: \(error)")
+    }
+    func locationManager(_: CLLocationManager, didFinishDeferredUpdatesWithError: Error?){
+        print("error")
     }
     
     func terminal1() {
@@ -318,6 +326,7 @@ extension Date
     func dateAt(hours: Int, minutes: Int) -> Date
     {
         let calendar = NSCalendar(calendarIdentifier: NSCalendar.Identifier.gregorian)!
+        calendar.timeZone = NSTimeZone.system
         
         //get the month/day/year componentsfor today's date.
         var date_components = calendar.components(

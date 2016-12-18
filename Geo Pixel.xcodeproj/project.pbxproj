@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		771080BF1E048A0A0095134C /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 777A6E331DFF372D00033769 /* MapKit.framework */; };
 		7740E8EE1DF8DAC900EA66AA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7740E8ED1DF8DAC900EA66AA /* AppDelegate.swift */; };
 		7740E8F01DF8DAC900EA66AA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7740E8EF1DF8DAC900EA66AA /* ViewController.swift */; };
 		7740E8F31DF8DAC900EA66AA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7740E8F11DF8DAC900EA66AA /* Main.storyboard */; };
@@ -81,6 +82,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				771080BF1E048A0A0095134C /* MapKit.framework in Frameworks */,
 				777A6E321DFF2A8500033769 /* CoreLocation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
