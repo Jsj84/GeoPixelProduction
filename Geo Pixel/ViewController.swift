@@ -3,7 +3,7 @@
 //  Geo Pixel
 //
 //  Created by Jesse St. John on 12/7/16.
-//  Copyright © 2016 JNJ Apps. All rights reserved.
+//  Copyright © 2016 Jesse St. John. All rights reserved.
 //
 
 import UIKit
@@ -21,15 +21,18 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     // set the titles for the tableView
     let items = ["JFK International Airport", "Terminal 1", "Terminal 2", "Terminal 4", "Terminal 5", "Terminal 7", "Terminal 8"]
     
-    // set the 2Dcoordinate values
-//    let tONe = CLCircularRegion(center: CLLocationCoordinate2D(latitude: 40.643692, longitude:  -73.79008), radius: 25, identifier: "terminalOne")
-//    let tTwo = CLCircularRegion(center: CLLocationCoordinate2D(latitude: 40.643692, longitude:  -73.79008), radius: 25, identifier: "terminalTwo")
-//    let tFour = CLCircularRegion(center: CLLocationCoordinate2D(latitude: 40.643692, longitude:  -73.79008), radius: 25, identifier: "terminalFour")
-//    let tFive = CLCircularRegion(center: CLLocationCoordinate2D(latitude: 40.643692, longitude:  -73.79008), radius: 25, identifier: "terminalFive")
-//    let tSeven = CLCircularRegion(center: CLLocationCoordinate2D(latitude: 40.643692, longitude:  -73.79008), radius: 25, identifier: "terminalSeven")
-//    let tEight = CLCircularRegion(center: CLLocationCoordinate2D(latitude: 40.643692, longitude:  -73.79008), radius: 25, identifier: "terminalEight")
-    
+     // set the 2Dcoordinate values
+    let tONe = CLCircularRegion(center: CLLocationCoordinate2D(latitude: 40.6945241, longitude:  -73.99400079999998), radius: 20, identifier: "terminalOne")
+    let tTwo = CLCircularRegion(center: CLLocationCoordinate2D(latitude: 40.6924582, longitude:  -73.99121760000003), radius: 20, identifier: "terminalTwo")
+    let tFour = CLCircularRegion(center: CLLocationCoordinate2D(latitude: 40.643692, longitude:  -73.79008), radius: 20, identifier: "terminalFour")
+    let tFive = CLCircularRegion(center: CLLocationCoordinate2D(latitude: 40.643692, longitude:  -73.79008), radius: 20, identifier: "terminalFive")
+    let tSeven = CLCircularRegion(center: CLLocationCoordinate2D(latitude: 40.643692, longitude:  -73.79008), radius: 20, identifier: "terminalSeven")
+    let tEight = CLCircularRegion(center: CLLocationCoordinate2D(latitude: 40.643692, longitude:  -73.79008), radius: 20, identifier: "terminalEight")
+    let test = CLCircularRegion(center: CLLocationCoordinate2D(latitude: 40.69633569999999, longitude:  -73.99167620000003), radius: 20, identifier: "testLocation")
+
      var region = CLCircularRegion()
+     var region1 = CLCircularRegion()
+     var region2 = CLCircularRegion()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,7 +40,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         // set the location manager delegate to self, request autorization and set accuracy
         locationManager.delegate = self
         locationManager.requestAlwaysAuthorization()
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.desiredAccuracy = kCLLocationAccuracyThreeKilometers
         
         // set the table veiw delage, data source and style
         self.tableView.delegate = self
@@ -62,12 +65,18 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         locationManager.startUpdatingLocation()
-        let region = CLCircularRegion(center: CLLocationCoordinate2D(latitude: 40.69633569999999, longitude:  -73.99167620000003), radius: 30, identifier: "testLocation")
+        let region = test
         locationManager.startMonitoring(for: region)
         region.notifyOnEntry = true
+        let region1 = tONe
+        locationManager.stopMonitoring(for: region1)
+        region1.notifyOnEntry = true
+        let region2 = tTwo
+        locationManager.startMonitoring(for: region2)
+        region2.notifyOnEntry = true
     }
     func locationManager(_ manager: CLLocationManager, didEnterRegion region: CLRegion) {
-        let alert = UIAlertController(title: "Entered Region", message: "You've entered the test region", preferredStyle: UIAlertControllerStyle.alert)
+        let alert = UIAlertController(title: "Entered Region", message: "You've entered: \(region.identifier)", preferredStyle: UIAlertControllerStyle.alert)
         let alertAction = UIAlertAction(title: "OK!", style: UIAlertActionStyle.default) { (UIAlertAction) -> Void in }
         alert.addAction(alertAction)
         self.present(alert, animated: true, completion: nil)
@@ -75,7 +84,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         NSLog("Did enter region")
     }
     func locationManager(_ manager: CLLocationManager, didExitRegion region: CLRegion) {
-        let alert = UIAlertController(title: "Left Region", message: "You've left the test region", preferredStyle: UIAlertControllerStyle.alert)
+        let alert = UIAlertController(title: "Left Region", message: "You've left: \(region.identifier)", preferredStyle: UIAlertControllerStyle.alert)
         let alertAction = UIAlertAction(title: "OK!", style: UIAlertActionStyle.default) { (UIAlertAction) -> Void in }
         alert.addAction(alertAction)
         self.present(alert, animated: true, completion: nil)
