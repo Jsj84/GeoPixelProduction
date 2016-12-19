@@ -15,31 +15,29 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     // set the constants, varibles and outlets
     let now = Date()
     var player: AVAudioPlayer?
+    
+    // class constants and variables I'm using for
     let locationManager = CLLocationManager()
+    var center = CLLocationCoordinate2D()
+    let radius = 10 as CLLocationDistance
+    
     @IBOutlet weak var tableView: UITableView!
     
-    // set the titles for the tableView
+    //  set the titles for the tableView
     let items = ["JFK International Airport", "Terminal 1", "Terminal 2", "Terminal 4", "Terminal 5", "Terminal 7", "Terminal 8"]
-    
-     // set the 2Dcoordinate values
-    let tONe = CLCircularRegion(center: CLLocationCoordinate2D(latitude: 40.6945241, longitude:  -73.99400079999998), radius: 20, identifier: "terminalOne")
-    
-    let tTwo = CLCircularRegion(center: CLLocationCoordinate2D(latitude: 40.6924582, longitude:  -73.99121760000003), radius: 20, identifier: "terminalTwo")
-    
-    let tFour = CLCircularRegion(center: CLLocationCoordinate2D(latitude: 40.643692, longitude:  -73.79008), radius: 20, identifier: "terminalFour")
-    
-    let tFive = CLCircularRegion(center: CLLocationCoordinate2D(latitude: 40.643692, longitude:  -73.79008), radius: 20, identifier: "terminalFive")
-    
-    let tSeven = CLCircularRegion(center: CLLocationCoordinate2D(latitude: 40.643692, longitude:  -73.79008), radius: 20, identifier: "terminalSeven")
-    
-    let tEight = CLCircularRegion(center: CLLocationCoordinate2D(latitude: 40.643692, longitude:  -73.79008), radius: 20, identifier: "terminalEight")
-    
-    let test = CLCircularRegion(center: CLLocationCoordinate2D(latitude: 40.69633569999999, longitude:  -73.99167620000003), radius: 20, identifier: "testLocation")
 
-     var region = CLCircularRegion()
-     var region1 = CLCircularRegion()
-     var region2 = CLCircularRegion()
-    
+
+    // create an array of locations.
+    let locationsArray = [
+        CLLocation(latitude: 40.69633569999999, longitude: -73.99167620000003), // my house and test location
+        CLLocation(latitude: 40.760920, longitude: -73.988665),
+        CLLocation(latitude: 40.761417, longitude: -73.977120),
+        CLLocation(latitude: 40.756520, longitude: -73.973406),
+        CLLocation(latitude: 40.748441, longitude: -73.985664),
+        CLLocation(latitude: 40.756359, longitude: -73.988873),
+        CLLocation(latitude: 40.756359, longitude: -73.988873)
+    ]
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -53,7 +51,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         self.tableView.dataSource = self
         self.tableView.backgroundColor = UIColor.clear
         self.tableView.isOpaque = true
-        
+
     }
     // check the authorization atatus and proceed if it is set to always or display message if set to never
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
@@ -70,38 +68,20 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
     }
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        locationManager.startUpdatingLocation()
-        let region = test
-        locationManager.startMonitoring(for: region)
-        region.notifyOnEntry = true
-        let region1 = tONe
-        locationManager.stopMonitoring(for: region1)
-        region1.notifyOnEntry = true
-        let region2 = tTwo
-        locationManager.startMonitoring(for: region2)
-        region2.notifyOnEntry = true
+        for i in 0 ..< locationsArray.count {
+            center = CLLocationCoordinate2D(latitude: locationsArray[i].coordinate.latitude, longitude: locationsArray[i].coordinate.longitude)
+            let region = CLCircularRegion.init(center: center, radius: radius, identifier: "Okay")
+            self.locationManager.startMonitoring(for: region)
+            region.notifyOnEntry = true
+                    print(i)
+        }
     }
     func locationManager(_ manager: CLLocationManager, didEnterRegion region: CLRegion) {
         let alert = UIAlertController(title: "Entered Region", message: "You've entered: \(region.identifier)", preferredStyle: UIAlertControllerStyle.alert)
         let alertAction = UIAlertAction(title: "OK!", style: UIAlertActionStyle.default) { (UIAlertAction) -> Void in }
         alert.addAction(alertAction)
-        self.present(alert, animated: true, completion: nil)
-        
-        let one_am = now.dateAt(hours: 1, minutes: 0)
-        let one_pm = now.dateAt(hours: 13, minutes: 0)
-        let fivePm_today = now.dateAt(hours: 17, minutes: 0)
-        
-        if now >= one_am &&
-            now < one_pm
-        {
-            goodMorning()
-        }
-        else if now >= one_pm && now < fivePm_today{
-            goodAfternoon()
-        }
-        else {
-            goodEvening()
-        }
+        present(alert, animated: true, completion: nil)
+        greetings()
         terminal1()
         NSLog("Did enter region")
     }
@@ -110,6 +90,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let alertAction = UIAlertAction(title: "OK!", style: UIAlertActionStyle.default) { (UIAlertAction) -> Void in }
         alert.addAction(alertAction)
         self.present(alert, animated: true, completion: nil)
+        greetings()
         terminal4()
     }
     func locationManager(_ manager: CLLocationManager, monitoringDidFailFor region: CLRegion?, withError error: Error) {
@@ -122,7 +103,23 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func locationManager(_: CLLocationManager, didFinishDeferredUpdatesWithError: Error?){
         print("error")
     }
-    
+    func greetings() {
+        let one_am = now.dateAt(hours: 1, minutes: 0)
+        let twleve_pm = now.dateAt(hours: 12, minutes: 0)
+        let fivePm_today = now.dateAt(hours: 17, minutes: 0)
+        
+        if now >= one_am && now <= twleve_pm
+        {
+            goodMorning()
+        }
+        else if now > twleve_pm && now < fivePm_today {
+            goodAfternoon()
+        }
+        else if now >= fivePm_today && now < one_am {
+            goodEvening()
+        }
+        
+    }
     func terminal1() {
         guard let url = Bundle.main.url(forResource: "Terminal 1", withExtension: "mp3") else {
             print("url not found")
