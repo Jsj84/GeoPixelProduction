@@ -19,18 +19,18 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     // class constants and variables I'm using for
     let locationManager = CLLocationManager()
     var center = CLLocationCoordinate2D()
-    let radius = 10 as CLLocationDistance
+    let radius = 20 as CLLocationDistance
+    var coordinates: [CLLocationCoordinate2D] = []
     
     @IBOutlet weak var tableView: UITableView!
     
     //  set the titles for the tableView
     let items = ["JFK International Airport", "Terminal 1", "Terminal 2", "Terminal 4", "Terminal 5", "Terminal 7", "Terminal 8"]
 
-
     // create an array of locations.
     let locationsArray = [
         CLLocation(latitude: 40.69633569999999, longitude: -73.99167620000003), // my house and test location
-        CLLocation(latitude: 40.760920, longitude: -73.988665),
+        CLLocation(latitude: 40.6986157, longitude: -73.9927212),
         CLLocation(latitude: 40.761417, longitude: -73.977120),
         CLLocation(latitude: 40.756520, longitude: -73.973406),
         CLLocation(latitude: 40.748441, longitude: -73.985664),
@@ -68,16 +68,22 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
     }
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        for i in 0 ..< locationsArray.count {
-            center = CLLocationCoordinate2D(latitude: locationsArray[i].coordinate.latitude, longitude: locationsArray[i].coordinate.longitude)
-            let region = CLCircularRegion.init(center: center, radius: radius, identifier: "Okay")
+        for index in 0..<self.locationsArray.count{
+            let lat = Double(self.locationsArray[index].coordinate.latitude)
+            let long = Double(self.locationsArray[index].coordinate.longitude)
+            let coordinatesToAppend = CLLocationCoordinate2D(latitude: lat, longitude: long)
+            coordinates.append(coordinatesToAppend)
+            center = CLLocationCoordinate2D(latitude: lat, longitude: long)
+            let region = CLCircularRegion.init(center: center, radius: radius, identifier: "none")
             self.locationManager.startMonitoring(for: region)
             region.notifyOnEntry = true
-                    print(i)
+            region.notifyOnExit = true
+            print(lat, long)
         }
     }
+    
     func locationManager(_ manager: CLLocationManager, didEnterRegion region: CLRegion) {
-        let alert = UIAlertController(title: "Entered Region", message: "You've entered: \(region.identifier)", preferredStyle: UIAlertControllerStyle.alert)
+        let alert = UIAlertController(title: "Entered Region", message: "You've entered my test area", preferredStyle: UIAlertControllerStyle.alert)
         let alertAction = UIAlertAction(title: "OK!", style: UIAlertActionStyle.default) { (UIAlertAction) -> Void in }
         alert.addAction(alertAction)
         present(alert, animated: true, completion: nil)
@@ -370,5 +376,10 @@ extension Date
         
         let newDate = calendar.date(from: date_components)!
         return newDate
+    }
+}
+extension String {
+    var coordinateValue: CLLocationDegrees {
+        return (self as NSString).doubleValue
     }
 }
