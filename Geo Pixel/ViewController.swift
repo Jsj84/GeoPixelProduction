@@ -19,7 +19,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     // class constants and variables I'm using for
     let locationManager = CLLocationManager()
     var center = CLLocationCoordinate2D()
-    let radius = 20 as CLLocationDistance
+    let radius = 50 as CLLocationDistance
     var coordinates: [CLLocationCoordinate2D] = []
     
     @IBOutlet weak var tableView: UITableView!
@@ -29,8 +29,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
     // create an array of locations.
     let locationsArray = [
+        CLLocation(latitude: 40.7573566, longitude: -73.97537349999999),
         CLLocation(latitude: 40.69633569999999, longitude: -73.99167620000003), // my house and test location
-        CLLocation(latitude: 40.6986157, longitude: -73.9927212),
         CLLocation(latitude: 40.761417, longitude: -73.977120),
         CLLocation(latitude: 40.756520, longitude: -73.973406),
         CLLocation(latitude: 40.748441, longitude: -73.985664),
