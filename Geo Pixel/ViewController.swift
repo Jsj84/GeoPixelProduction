@@ -21,74 +21,92 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     var center = CLLocationCoordinate2D()
     let radius = 50 as CLLocationDistance
     var coordinates: [CLLocationCoordinate2D] = []
+    let notification = UILocalNotification()
     
     @IBOutlet weak var tableView: UITableView!
     
     //  set the titles for the tableView
     let items = ["JFK International Airport", "Terminal 1", "Terminal 2", "Terminal 4", "Terminal 5", "Terminal 7", "Terminal 8"]
-
+    
     // create an array of locations.
     let locationsArray = [
-        CLLocation(latitude: 40.7573566, longitude: -73.97537349999999),
+        CLLocation(latitude: 40.757365, longitude: -73.975393),
         CLLocation(latitude: 40.69633569999999, longitude: -73.99167620000003), // my house and test location
-        CLLocation(latitude: 40.761417, longitude: -73.977120),
+        CLLocation(latitude: 40.7528072, longitude: -73.97927019999997),
         CLLocation(latitude: 40.756520, longitude: -73.973406),
         CLLocation(latitude: 40.748441, longitude: -73.985664),
         CLLocation(latitude: 40.756359, longitude: -73.988873),
         CLLocation(latitude: 40.756359, longitude: -73.988873)
     ]
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // set the location manager delegate to self, request autorization and set accuracy
         locationManager.delegate = self
         locationManager.requestAlwaysAuthorization()
-        locationManager.desiredAccuracy = kCLLocationAccuracyThreeKilometers
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
         
         // set the table veiw delage, data source and style
         self.tableView.delegate = self
         self.tableView.dataSource = self
         self.tableView.backgroundColor = UIColor.clear
         self.tableView.isOpaque = true
-
+        
     }
     // check the authorization atatus and proceed if it is set to always or display message if set to never
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         if status == .authorizedAlways {
             if CLLocationManager.isRangingAvailable() {
                 locationManager.startUpdatingLocation()
+                for index in 0..<self.locationsArray.count{
+                    let lat = Double(self.locationsArray[index].coordinate.latitude)
+                    let long = Double(self.locationsArray[index].coordinate.longitude)
+                    let coordinatesToAppend = CLLocationCoordinate2D(latitude: lat, longitude: long)
+                    coordinates.append(coordinatesToAppend)
+                    center = CLLocationCoordinate2D(latitude: lat, longitude: long)
+                    let region = CLCircularRegion.init(center: center, radius: radius, identifier: "\(locationsArray[index].coordinate.latitude)")
+                    locationManager.startMonitoring(for: region)
+                }
             }
-        }
-        else if status == .denied {
-            let alert = UIAlertController(title: "Warning", message: "You've disabled location update which is required for this app to work. Go to your phone settings and change the permissions.", preferredStyle: UIAlertControllerStyle.alert)
-            let alertAction = UIAlertAction(title: "OK!", style: UIAlertActionStyle.default) { (UIAlertAction) -> Void in }
-            alert.addAction(alertAction)
-            self.present(alert, animated: true, completion: nil)
+            else if status == .denied {
+                let alert = UIAlertController(title: "Warning", message: "You've disabled location update which is required for this app to work. Go to your phone settings and change the permissions.", preferredStyle: UIAlertControllerStyle.alert)
+                let alertAction = UIAlertAction(title: "OK!", style: UIAlertActionStyle.default) { (UIAlertAction) -> Void in }
+                alert.addAction(alertAction)
+                self.present(alert, animated: true, completion: nil)
+            }
         }
     }
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        for index in 0..<self.locationsArray.count{
-            let lat = Double(self.locationsArray[index].coordinate.latitude)
-            let long = Double(self.locationsArray[index].coordinate.longitude)
-            let coordinatesToAppend = CLLocationCoordinate2D(latitude: lat, longitude: long)
-            coordinates.append(coordinatesToAppend)
-            center = CLLocationCoordinate2D(latitude: lat, longitude: long)
-            let region = CLCircularRegion.init(center: center, radius: radius, identifier: "none")
-            self.locationManager.startMonitoring(for: region)
-            region.notifyOnEntry = true
-            region.notifyOnExit = true
-            print(lat, long)
-        }
+        
+    }
+    func locationManager(_ manager: CLLocationManager, didStartMonitoringFor region: CLRegion) {
+        print("Region: \(region.identifier)" + " is being monitored")
+        region.notifyOnEntry = true
+        region.notifyOnEntry = true
+    }
+    func locationManager(_ manager: CLLocationManager, monitoringDidFailFor region: CLRegion?, withError error: Error) {
+        print("Monitoring failed for region with identifier: \(region?.identifier)")
     }
     
     func locationManager(_ manager: CLLocationManager, didEnterRegion region: CLRegion) {
+
+        notification.fireDate = NSDate(timeIntervalSinceNow: 1) as Date
+        notification.alertBody = "You have just entered \(region.identifier)!"
+        notification.alertAction = "Please open the app for terminal information"
+        notification.soundName = UILocalNotificationDefaultSoundName
+        notification.userInfo = ["CustomField1": "w00t"]
+        UIApplication.shared.scheduleLocalNotification(notification)
+        guard UIApplication.shared.currentUserNotificationSettings != nil else { return }
+        
         let alert = UIAlertController(title: "Entered Region", message: "You've entered my test area", preferredStyle: UIAlertControllerStyle.alert)
         let alertAction = UIAlertAction(title: "OK!", style: UIAlertActionStyle.default) { (UIAlertAction) -> Void in }
         alert.addAction(alertAction)
         present(alert, animated: true, completion: nil)
+        
         greetings()
         terminal1()
+        
         NSLog("Did enter region")
     }
     func locationManager(_ manager: CLLocationManager, didExitRegion region: CLRegion) {
@@ -99,10 +117,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         greetings()
         terminal4()
     }
-    func locationManager(_ manager: CLLocationManager, monitoringDidFailFor region: CLRegion?, withError error: Error) {
-        print("Monitoring failed for region with identifier: \(region?.identifier)")
-    }
-    
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print("Location Manager failed with the following error: \(error)")
     }

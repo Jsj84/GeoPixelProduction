@@ -19,7 +19,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
         locationManager.delegate = self
         locationManager.requestAlwaysAuthorization()
         application.registerUserNotificationSettings(UIUserNotificationSettings(types: [.sound, .alert, .badge], categories: nil))
-        UIApplication.shared.cancelAllLocalNotifications()
         return true
     }
 
