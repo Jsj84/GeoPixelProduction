@@ -19,7 +19,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     // class constants and variables I'm using for
     let locationManager = CLLocationManager()
     var center = CLLocationCoordinate2D()
-    let radius = 50 as CLLocationDistance
+    let radius = 30 as CLLocationDistance
     var coordinates: [CLLocationCoordinate2D] = []
     let notification = UILocalNotification()
     
@@ -30,13 +30,20 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     // create an array of locations.
     let locationsArray = [
-        CLLocation(latitude: 40.757365, longitude: -73.975393),
         CLLocation(latitude: 40.69633569999999, longitude: -73.99167620000003), // my house and test location
-        CLLocation(latitude: 40.7528072, longitude: -73.97927019999997),
-        CLLocation(latitude: 40.756520, longitude: -73.973406),
+        CLLocation(latitude: 40.757365, longitude: -73.975393), // 437 Madison Avenue
+        CLLocation(latitude: 40.6924582, longitude: -73.99121760000003), // Starbucks on Court St. and Jerolomon
+        CLLocation(latitude: 40.6903611, longitude: -73.98617489999998), // Macy's on Fulton St.
         CLLocation(latitude: 40.748441, longitude: -73.985664),
         CLLocation(latitude: 40.756359, longitude: -73.988873),
         CLLocation(latitude: 40.756359, longitude: -73.988873)
+        //        CLLocation(latitude: 40.643692	, longitude: -73.79008), // terminal one
+        //        CLLocation(latitude: 40.642169, longitude: -73.788976), // terminal two
+        //        CLLocation(latitude: 40.644535, longitude: -73.782626),  // terminal four
+        //        CLLocation(latitude: 40.644831	, longitude: -73.777362), // terminal five
+        //        CLLocation(latitude: 40.648505, longitude: -73.782516), // terminal seven
+        //        CLLocation(latitude: 40.646471, longitude: -73.78886) // terminal eight
+
     ]
     
     override func viewDidLoad() {
@@ -90,7 +97,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func locationManager(_ manager: CLLocationManager, didEnterRegion region: CLRegion) {
-
         notification.fireDate = NSDate(timeIntervalSinceNow: 1) as Date
         notification.alertBody = "You have just entered \(region.identifier)!"
         notification.alertAction = "Please open the app for terminal information"
@@ -99,21 +105,20 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         UIApplication.shared.scheduleLocalNotification(notification)
         guard UIApplication.shared.currentUserNotificationSettings != nil else { return }
         
-        let alert = UIAlertController(title: "Entered Region", message: "You've entered my test area", preferredStyle: UIAlertControllerStyle.alert)
-        let alertAction = UIAlertAction(title: "OK!", style: UIAlertActionStyle.default) { (UIAlertAction) -> Void in }
-        alert.addAction(alertAction)
-        present(alert, animated: true, completion: nil)
-        
         greetings()
         terminal1()
         
         NSLog("Did enter region")
     }
     func locationManager(_ manager: CLLocationManager, didExitRegion region: CLRegion) {
-        let alert = UIAlertController(title: "Left Region", message: "You've left: \(region.identifier)", preferredStyle: UIAlertControllerStyle.alert)
-        let alertAction = UIAlertAction(title: "OK!", style: UIAlertActionStyle.default) { (UIAlertAction) -> Void in }
-        alert.addAction(alertAction)
-        self.present(alert, animated: true, completion: nil)
+        notification.fireDate = NSDate(timeIntervalSinceNow: 1) as Date
+        notification.alertBody = "You have just exited \(region.identifier)!"
+        notification.alertAction = "Please open the app for terminal information"
+        notification.soundName = UILocalNotificationDefaultSoundName
+        notification.userInfo = ["CustomField1": "w00t"]
+        UIApplication.shared.scheduleLocalNotification(notification)
+        guard UIApplication.shared.currentUserNotificationSettings != nil else { return }
+        
         greetings()
         terminal4()
     }
