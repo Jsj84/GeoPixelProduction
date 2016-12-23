@@ -19,9 +19,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     // class constants and variables I'm using for
     let locationManager = CLLocationManager()
     var center = CLLocationCoordinate2D()
-    let radius = 30 as CLLocationDistance
+    let radius = 25 as CLLocationDistance
     var coordinates: [CLLocationCoordinate2D] = []
-    let notification = UILocalNotification()
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -31,20 +30,20 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     // create an array of locations.
     let locationsArray = [
         CLLocation(latitude: 40.69633569999999, longitude: -73.99167620000003), // my house and test location
-        CLLocation(latitude: 40.757365, longitude: -73.975393), // 437 Madison Avenue
+        CLLocation(latitude: 40.7573566, longitude: -73.97537349999999), // 437 Madison Avenue
         CLLocation(latitude: 40.6924582, longitude: -73.99121760000003), // Starbucks on Court St. and Jerolomon
         CLLocation(latitude: 40.6903611, longitude: -73.98617489999998), // Macy's on Fulton St.
-        CLLocation(latitude: 40.748441, longitude: -73.985664),
-        CLLocation(latitude: 40.756359, longitude: -73.988873),
+        CLLocation(latitude: 40.7343315, longitude: -74.00363620000002), // Bobs house
+        CLLocation(latitude: 40.73856000000001, longitude: -73.99967800000002), // 14th and 7th avenue
         CLLocation(latitude: 40.756359, longitude: -73.988873)
-        //        CLLocation(latitude: 40.643692	, longitude: -73.79008), // terminal one
-        //        CLLocation(latitude: 40.642169, longitude: -73.788976), // terminal two
-        //        CLLocation(latitude: 40.644535, longitude: -73.782626),  // terminal four
-        //        CLLocation(latitude: 40.644831	, longitude: -73.777362), // terminal five
-        //        CLLocation(latitude: 40.648505, longitude: -73.782516), // terminal seven
-        //        CLLocation(latitude: 40.646471, longitude: -73.78886) // terminal eight
-
     ]
+    //        CLLocation(latitude: 40.643692	, longitude: -73.79008), // terminal one
+    //        CLLocation(latitude: 40.642169, longitude: -73.788976), // terminal two
+    //        CLLocation(latitude: 40.644535, longitude: -73.782626),  // terminal four
+    //        CLLocation(latitude: 40.644831	, longitude: -73.777362), // terminal five
+    //        CLLocation(latitude: 40.648505, longitude: -73.782516), // terminal seven
+    //        CLLocation(latitude: 40.646471, longitude: -73.78886) // terminal eight
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -66,6 +65,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         if status == .authorizedAlways {
             if CLLocationManager.isRangingAvailable() {
                 locationManager.startUpdatingLocation()
+                locationManager.distanceFilter = 5
                 for index in 0..<self.locationsArray.count{
                     let lat = Double(self.locationsArray[index].coordinate.latitude)
                     let long = Double(self.locationsArray[index].coordinate.longitude)
@@ -97,6 +97,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func locationManager(_ manager: CLLocationManager, didEnterRegion region: CLRegion) {
+        let notification = UILocalNotification()
         notification.fireDate = NSDate(timeIntervalSinceNow: 1) as Date
         notification.alertBody = "You have just entered \(region.identifier)!"
         notification.alertAction = "Please open the app for terminal information"
@@ -111,13 +112,36 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         NSLog("Did enter region")
     }
     func locationManager(_ manager: CLLocationManager, didExitRegion region: CLRegion) {
-        notification.fireDate = NSDate(timeIntervalSinceNow: 1) as Date
-        notification.alertBody = "You have just exited \(region.identifier)!"
-        notification.alertAction = "Please open the app for terminal information"
-        notification.soundName = UILocalNotificationDefaultSoundName
-        notification.userInfo = ["CustomField1": "w00t"]
-        UIApplication.shared.scheduleLocalNotification(notification)
-        guard UIApplication.shared.currentUserNotificationSettings != nil else { return }
+        let one_am = now.dateAt(hours: 1, minutes: 0)
+        let twleve_pm = now.dateAt(hours: 12, minutes: 0)
+        let fivePm_today = now.dateAt(hours: 17, minutes: 0)
+        let regionLocatoin = region.identifier
+        switch regionLocatoin {
+        case "40.6963357":
+            if now >= one_am && now <= twleve_pm
+            {
+                goodMorning()
+            }
+            else if now > twleve_pm && now < fivePm_today {
+                goodAfternoon()
+            }
+            else if now >= fivePm_today && now < one_am {
+                goodEvening()
+            }
+            
+        case"40.6924582":
+            let notification = UILocalNotification()
+            notification.fireDate = NSDate(timeIntervalSinceNow: 1) as Date
+            notification.alertBody = "You have just left Starbucks Jesse!"
+            notification.alertAction = "Please open the app for terminal information"
+            notification.soundName = UILocalNotificationDefaultSoundName
+            notification.userInfo = ["CustomField1": "w00t"]
+            UIApplication.shared.scheduleLocalNotification(notification)
+            guard UIApplication.shared.currentUserNotificationSettings != nil else { return }
+        default: break
+            
+        }
+        
         
         greetings()
         terminal4()
