@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		771080BF1E048A0A0095134C /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 777A6E331DFF372D00033769 /* MapKit.framework */; };
 		7740E8EE1DF8DAC900EA66AA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7740E8ED1DF8DAC900EA66AA /* AppDelegate.swift */; };
-		7740E8F01DF8DAC900EA66AA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7740E8EF1DF8DAC900EA66AA /* ViewController.swift */; };
 		7740E8F31DF8DAC900EA66AA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7740E8F11DF8DAC900EA66AA /* Main.storyboard */; };
 		7740E8F51DF8DAC900EA66AA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7740E8F41DF8DAC900EA66AA /* Assets.xcassets */; };
 		7740E8F81DF8DAC900EA66AA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7740E8F61DF8DAC900EA66AA /* LaunchScreen.storyboard */; };
@@ -28,6 +27,7 @@
 		7740E9331DF8EAD400EA66AA /* Many bags look alike.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7740E9321DF8EAD400EA66AA /* Many bags look alike.mp3 */; };
 		7740E9351DF8EAE200EA66AA /* Thank you for using NYC Airporter.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7740E9341DF8EAE200EA66AA /* Thank you for using NYC Airporter.mp3 */; };
 		777A6E321DFF2A8500033769 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 777A6E311DFF2A8500033769 /* CoreLocation.framework */; };
+		77D32E5A1E14333700F2BCFF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77D32E591E14333700F2BCFF /* ViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,7 +50,6 @@
 /* Begin PBXFileReference section */
 		7740E8EA1DF8DAC900EA66AA /* Geo Pixel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Geo Pixel.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7740E8ED1DF8DAC900EA66AA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		7740E8EF1DF8DAC900EA66AA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		7740E8F21DF8DAC900EA66AA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7740E8F41DF8DAC900EA66AA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7740E8F71DF8DAC900EA66AA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -75,6 +74,7 @@
 		7740E9341DF8EAE200EA66AA /* Thank you for using NYC Airporter.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Thank you for using NYC Airporter.mp3"; sourceTree = "<group>"; };
 		777A6E311DFF2A8500033769 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		777A6E331DFF372D00033769 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		77D32E591E14333700F2BCFF /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,7 +130,7 @@
 			children = (
 				7740E91B1DF8DCD000EA66AA /* Audio  */,
 				7740E8ED1DF8DAC900EA66AA /* AppDelegate.swift */,
-				7740E8EF1DF8DAC900EA66AA /* ViewController.swift */,
+				77D32E591E14333700F2BCFF /* ViewController.swift */,
 				7740E8F11DF8DAC900EA66AA /* Main.storyboard */,
 				7740E8F41DF8DAC900EA66AA /* Assets.xcassets */,
 				7740E8F61DF8DAC900EA66AA /* LaunchScreen.storyboard */,
@@ -339,7 +339,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7740E8F01DF8DAC900EA66AA /* ViewController.swift in Sources */,
+				77D32E5A1E14333700F2BCFF /* ViewController.swift in Sources */,
 				7740E8EE1DF8DAC900EA66AA /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -492,6 +492,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = JN83A35T6F;
 				INFOPLIST_FILE = "Geo Pixel/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -505,6 +506,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = JN83A35T6F;
 				INFOPLIST_FILE = "Geo Pixel/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

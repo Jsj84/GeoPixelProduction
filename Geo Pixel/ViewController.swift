@@ -13,13 +13,11 @@ import CoreLocation
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, AVAudioPlayerDelegate, CLLocationManagerDelegate {
     
     // set the constants, varibles and outlets
-    let now = Date()
+    var now = Date()
     var player: AVAudioPlayer?
-    
-    // class constants and variables I'm using for
+    var radius = 0 as CLLocationDistance
     let locationManager = CLLocationManager()
     var center = CLLocationCoordinate2D()
-    let radius = 25 as CLLocationDistance
     var coordinates: [CLLocationCoordinate2D] = []
     
     @IBOutlet weak var tableView: UITableView!
@@ -29,21 +27,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     // create an array of locations.
     let locationsArray = [
-        CLLocation(latitude: 40.69633569999999, longitude: -73.99167620000003), // my house and test location
-        CLLocation(latitude: 40.7573566, longitude: -73.97537349999999), // 437 Madison Avenue
-        CLLocation(latitude: 40.6924582, longitude: -73.99121760000003), // Starbucks on Court St. and Jerolomon
-        CLLocation(latitude: 40.6903611, longitude: -73.98617489999998), // Macy's on Fulton St.
-        CLLocation(latitude: 40.7343315, longitude: -74.00363620000002), // Bobs house
-        CLLocation(latitude: 40.73856000000001, longitude: -73.99967800000002), // 14th and 7th avenue
-        CLLocation(latitude: 40.756359, longitude: -73.988873)
+        CLLocation(latitude: 40.64131109999999, longitude: -73.77813909999998), // JFK
+        CLLocation(latitude: 40.643692, longitude: -73.79008), // terminal one
+        CLLocation(latitude: 40.642169, longitude: -73.788976), // terminal two
+        CLLocation(latitude: 40.644535, longitude: -73.782626),  // terminal four
+        CLLocation(latitude: 40.644831, longitude: -73.777362), // terminal five
+        CLLocation(latitude: 40.648505, longitude: -73.782516), // terminal seven
+        CLLocation(latitude: 40.646471, longitude: -73.78886) // terminal eight
     ]
-    //        CLLocation(latitude: 40.643692	, longitude: -73.79008), // terminal one
-    //        CLLocation(latitude: 40.642169, longitude: -73.788976), // terminal two
-    //        CLLocation(latitude: 40.644535, longitude: -73.782626),  // terminal four
-    //        CLLocation(latitude: 40.644831	, longitude: -73.777362), // terminal five
-    //        CLLocation(latitude: 40.648505, longitude: -73.782516), // terminal seven
-    //        CLLocation(latitude: 40.646471, longitude: -73.78886) // terminal eight
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -65,19 +56,25 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         if status == .authorizedAlways {
             if CLLocationManager.isRangingAvailable() {
                 locationManager.startUpdatingLocation()
-                locationManager.distanceFilter = 5
+                locationManager.distanceFilter = 10
                 for index in 0..<self.locationsArray.count{
-                    let lat = Double(self.locationsArray[index].coordinate.latitude)
-                    let long = Double(self.locationsArray[index].coordinate.longitude)
-                    let coordinatesToAppend = CLLocationCoordinate2D(latitude: lat, longitude: long)
-                    coordinates.append(coordinatesToAppend)
-                    center = CLLocationCoordinate2D(latitude: lat, longitude: long)
-                    let region = CLCircularRegion.init(center: center, radius: radius, identifier: "\(locationsArray[index].coordinate.latitude)")
-                    locationManager.startMonitoring(for: region)
+                    if index == 0 {
+                        radius = 5000
+                    }
+                    else {
+                        radius = 50
+                    }
+                        let lat = Double(self.locationsArray[index].coordinate.latitude)
+                        let long = Double(self.locationsArray[index].coordinate.longitude)
+                        let coordinatesToAppend = CLLocationCoordinate2D(latitude: lat, longitude: long)
+                        coordinates.append(coordinatesToAppend)
+                        center = CLLocationCoordinate2D(latitude: lat, longitude: long)
+                        let region = CLCircularRegion.init(center: center, radius: radius, identifier: "\(locationsArray[index].coordinate.latitude)")
+                        locationManager.startMonitoring(for: region)
                 }
             }
             else if status == .denied {
-                let alert = UIAlertController(title: "Warning", message: "You've disabled location update which is required for this app to work. Go to your phone settings and change the permissions.", preferredStyle: UIAlertControllerStyle.alert)
+                let alert = UIAlertController(title: "Warning", message: "You've disabled location updates which are required for this app to work. Go to your phone settings and change the permissions to always allow.", preferredStyle: UIAlertControllerStyle.alert)
                 let alertAction = UIAlertAction(title: "OK!", style: UIAlertActionStyle.default) { (UIAlertAction) -> Void in }
                 alert.addAction(alertAction)
                 self.present(alert, animated: true, completion: nil)
@@ -90,84 +87,55 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func locationManager(_ manager: CLLocationManager, didStartMonitoringFor region: CLRegion) {
         print("Region: \(region.identifier)" + " is being monitored")
         region.notifyOnEntry = true
-        region.notifyOnEntry = true
     }
     func locationManager(_ manager: CLLocationManager, monitoringDidFailFor region: CLRegion?, withError error: Error) {
         print("Monitoring failed for region with identifier: \(region?.identifier)")
     }
-    
     func locationManager(_ manager: CLLocationManager, didEnterRegion region: CLRegion) {
-        let notification = UILocalNotification()
-        notification.fireDate = NSDate(timeIntervalSinceNow: 1) as Date
-        notification.alertBody = "You have just entered \(region.identifier)!"
-        notification.alertAction = "Please open the app for terminal information"
-        notification.soundName = UILocalNotificationDefaultSoundName
-        notification.userInfo = ["CustomField1": "w00t"]
-        UIApplication.shared.scheduleLocalNotification(notification)
-        guard UIApplication.shared.currentUserNotificationSettings != nil else { return }
-        
-        greetings()
-        terminal1()
-        
-        NSLog("Did enter region")
-    }
-    func locationManager(_ manager: CLLocationManager, didExitRegion region: CLRegion) {
         let one_am = now.dateAt(hours: 1, minutes: 0)
         let twleve_pm = now.dateAt(hours: 12, minutes: 0)
         let fivePm_today = now.dateAt(hours: 17, minutes: 0)
-        let regionLocatoin = region.identifier
-        switch regionLocatoin {
-        case "40.6963357":
-            if now >= one_am && now <= twleve_pm
-            {
-                goodMorning()
-            }
-            else if now > twleve_pm && now < fivePm_today {
-                goodAfternoon()
-            }
-            else if now >= fivePm_today && now < one_am {
-                goodEvening()
-            }
-            
-        case"40.6924582":
-            let notification = UILocalNotification()
-            notification.fireDate = NSDate(timeIntervalSinceNow: 1) as Date
-            notification.alertBody = "You have just left Starbucks Jesse!"
-            notification.alertAction = "Please open the app for terminal information"
-            notification.soundName = UILocalNotificationDefaultSoundName
-            notification.userInfo = ["CustomField1": "w00t"]
-            UIApplication.shared.scheduleLocalNotification(notification)
-            guard UIApplication.shared.currentUserNotificationSettings != nil else { return }
-        default: break
-            
-        }
-        
-        
-        greetings()
-        terminal4()
-    }
-    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        print("Location Manager failed with the following error: \(error)")
-    }
-    func locationManager(_: CLLocationManager, didFinishDeferredUpdatesWithError: Error?){
-        print("error")
-    }
-    func greetings() {
-        let one_am = now.dateAt(hours: 1, minutes: 0)
-        let twleve_pm = now.dateAt(hours: 12, minutes: 0)
-        let fivePm_today = now.dateAt(hours: 17, minutes: 0)
-        
         if now >= one_am && now <= twleve_pm
         {
             goodMorning()
         }
-        else if now > twleve_pm && now < fivePm_today {
+        else if now > twleve_pm && now <= fivePm_today {
             goodAfternoon()
         }
-        else if now >= fivePm_today && now < one_am {
+        else {
             goodEvening()
         }
+        let regionLocatoin = region.identifier
+        switch regionLocatoin {
+        case "40.6413111":
+            let notification = UILocalNotification()
+            notification.fireDate = NSDate(timeIntervalSinceNow: 1) as Date
+            notification.alertBody = "You have entered the general region of JFK. Please launch Geo Pixel for audio information"
+            notification.alertAction = "Open"
+            notification.soundName = UILocalNotificationDefaultSoundName
+            notification.userInfo = ["CustomField1": "w00t"]
+            UIApplication.shared.scheduleLocalNotification(notification)
+            guard UIApplication.shared.currentUserNotificationSettings != nil else { return }
+            jfk()
+        case"40.643692":
+            terminal1()
+        case"40.642169":
+            terminal2()
+        case"40.644535":
+            terminal4()
+        case"40.644831":
+            terminal5()
+        case"40.648505":
+            terminal7()
+        case"40.646471":
+            terminal8()
+        default: break
+        }
+        NSLog("Region: \(region.identifier) as been entered")
+    }
+    func locationManager(_ manager: CLLocationManager, didExitRegion region: CLRegion) {
         
+        NSLog("Region: \(region.identifier) as been entered")
     }
     func terminal1() {
         guard let url = Bundle.main.url(forResource: "Terminal 1", withExtension: "mp3") else {
