@@ -53,7 +53,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     // check the authorization atatus and proceed if it is set to always or display message if set to never
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-        if status == .authorizedAlways {
+         if status == .denied {
+            let alert = UIAlertController(title: "Warning", message: "You've disabled location updates which are required for this app to work. Go to your phone settings and change the permissions to always allow.", preferredStyle: UIAlertControllerStyle.alert)
+            let alertAction = UIAlertAction(title: "OK!", style: UIAlertActionStyle.default) { (UIAlertAction) -> Void in }
+            alert.addAction(alertAction)
+            self.present(alert, animated: true, completion: nil)
+        }
+       else if status == .authorizedAlways {
             if CLLocationManager.isRangingAvailable() {
                 locationManager.startUpdatingLocation()
                 locationManager.distanceFilter = 10
@@ -72,12 +78,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                         let region = CLCircularRegion.init(center: center, radius: radius, identifier: "\(locationsArray[index].coordinate.latitude)")
                         locationManager.startMonitoring(for: region)
                 }
-            }
-            else if status == .denied {
-                let alert = UIAlertController(title: "Warning", message: "You've disabled location updates which are required for this app to work. Go to your phone settings and change the permissions to always allow.", preferredStyle: UIAlertControllerStyle.alert)
-                let alertAction = UIAlertAction(title: "OK!", style: UIAlertActionStyle.default) { (UIAlertAction) -> Void in }
-                alert.addAction(alertAction)
-                self.present(alert, animated: true, completion: nil)
             }
         }
     }
